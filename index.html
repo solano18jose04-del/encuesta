@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Únete a nuestra tienda y recibe ofertas exclusivas en ropa deportiva.">
+    <title>Únete a nuestra tienda</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="color-scheme" content="light dark">
+</head>
+<body>
+    <main class="container" id="main">
+
+        <!-- Página: formulario -->
+        <section class="page active" id="formPage" aria-labelledby="formHeading">
+            <header class="header">
+                <h1 id="formHeading">¡Únete a nuestra tienda!</h1>
+                <p>Recibe las mejores ofertas en ropa deportiva y promociones exclusivas.</p>
+            </header>
+
+            <div class="discount-banner" role="status" aria-live="polite">¡10% de descuento en tu primera compra!</div>
+
+            <form id="signupForm" action="#" novalidate role="form" aria-labelledby="formHeading" aria-describedby="formError">
+                <div id="formError" class="form-error" aria-live="polite" hidden></div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="tu@correo.com" required aria-required="true" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="field-help">Usa un correo válido para recibir promociones.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="nombre">Nombre <span class="required">*</span></label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required aria-required="true" aria-describedby="nombreHelp">
+                    <div id="nombreHelp" class="field-help">Tu nombre se usará solo para personalizar los mensajes.</div>
+                </div>
+
+                <fieldset class="checkbox-group" aria-labelledby="interestsLabel">
+                    <legend id="interestsLabel">¿Qué te interesa? (opcional)</legend>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="interes-calzado" name="intereses" value="Calzado">
+                        <label for="interes-calzado">Calzado</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="interes-ropa-hombre" name="intereses" value="Ropa hombre">
+                        <label for="interes-ropa-hombre">Ropa para hombre</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="interes-ropa-mujer" name="intereses" value="Ropa mujer">
+                        <label for="interes-ropa-mujer">Ropa para mujer</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="interes-accesorios" name="intereses" value="Accesorios">
+                        <label for="interes-accesorios">Accesorios</label>
+                    </div>
+                </fieldset>
+
+                <div class="terms">
+                    <input type="checkbox" id="terminos" name="terminos" required aria-required="true">
+                    <label for="terminos">Acepto la <a href="#" target="_blank" rel="noopener">política de privacidad</a> y deseo recibir ofertas por correo electrónico.</label>
+                </div>
+
+                <button type="submit" class="submit-btn">¡Únete ahora!</button>
+            </form>
+        </section>
+
+        <!-- Página: revisión de datos (confirmación) -->
+        <section class="page" id="confirmPage" aria-hidden="true" aria-labelledby="confirmHeading">
+            <h2 class="confirmation-title" id="confirmHeading">Revisa tus datos</h2>
+            <p class="confirmation-subtitle">Confirma que los datos son correctos antes de completar tu suscripción.</p>
+
+            <div class="data-review" role="region" aria-label="Revisión de datos">
+                <div class="data-review-title">Tus datos</div>
+                <div class="data-item">
+                    <div class="data-label">Nombre</div>
+                    <div class="data-value" id="confirmName"></div>
+                </div>
+                <div class="data-item">
+                    <div class="data-label">Correo</div>
+                    <div class="data-value" id="confirmEmail"></div>
+                </div>
+                <div class="data-item">
+                    <div class="data-label">Intereses</div>
+                    <div class="data-value" id="confirmInterests">(ninguno)</div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn-secondary" id="backToFormBtn">Volver a editar</button>
+                <button class="btn-primary" id="confirmBtn">Confirmar y continuar</button>
+            </div>
+        </section>
+
+        <!-- Página: confirmación / éxito -->
+        <section class="page" id="successPage" aria-hidden="true" aria-labelledby="successHeading">
+            <div class="success-icon" aria-hidden="true">✓</div>
+            <h2 class="success-title" id="successHeading">¡Gracias por unirte!</h2>
+            <p class="success-subtitle">Hemos enviado un correo de confirmación a <span id="userEmail"></span>.</p>
+
+            <div class="user-info" role="region" aria-label="Resumen de datos finales">
+                <div class="user-info-item">
+                    <div class="user-info-icon">👤</div>
+                    <div class="user-info-text">
+                        <div class="user-info-label">Nombre</div>
+                        <div class="user-info-value" id="userName"></div>
+                    </div>
+                </div>
+                <div class="user-info-item">
+                    <div class="user-info-icon">✉️</div>
+                    <div class="user-info-text">
+                        <div class="user-info-label">Correo</div>
+                        <div class="user-info-value" id="userEmailText"></div>
+                    </div>
+                </div>
+                <div class="user-info-item">
+                    <div class="user-info-icon">🏷️</div>
+                    <div class="user-info-text">
+                        <div class="user-info-label">Intereses</div>
+                        <div class="user-info-value" id="userInterests">(ninguno)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn-secondary" id="editBtn">Editar</button>
+                <button class="btn-primary" id="doneBtn">Listo</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
